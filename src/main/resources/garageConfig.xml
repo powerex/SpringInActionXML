@@ -3,16 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bike"  class="ua.azbest.garage.Bicycle" />
+    <bean id="bike"  class="ua.azbest.garage.vehicle.Bicycle" />
 
-    <bean id="childbike"  class="ua.azbest.garage.Bicycle" >
+    <bean id="childbike"  class="ua.azbest.garage.vehicle.Bicycle" >
         <constructor-arg value="3" />
     </bean>
 
     <bean id="beep"
           class="ua.azbest.garage.BuzzerBeep" />
 
-    <bean id="modernBike" class="ua.azbest.garage.BuzzBicycle">
+    <bean id="modernBike" class="ua.azbest.garage.vehicle.BuzzBicycle">
         <!--<constructor-arg value="4" />-->
         <constructor-arg ref="beep" />
     </bean>
@@ -29,5 +29,13 @@
           class="ua.azbest.garage.GarageBox"
           init-method="turnOnLights"
           destroy-method="turnOffLights"/>
+
+    <bean id="diesel" class="ua.azbest.garage.engine.DieselEngine" />
+    <bean id="electro" class="ua.azbest.garage.engine.ElectricEngine" />
+
+    <bean id="car" class="ua.azbest.garage.vehicle.Car">
+        <property name="color" value="зелений"/>
+        <property name="engine" ref="electro" />
+    </bean>
 
 </beans>

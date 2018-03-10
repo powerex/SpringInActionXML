@@ -1,4 +1,6 @@
-package ua.azbest.garage;
+package ua.azbest.garage.vehicle;
+
+import ua.azbest.garage.MovingException;
 
 public class Bicycle implements Vehicle {
 

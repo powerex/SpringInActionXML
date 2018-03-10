@@ -1,4 +1,7 @@
-package ua.azbest.garage;
+package ua.azbest.garage.vehicle;
+
+import ua.azbest.garage.Buzzer;
+import ua.azbest.garage.MovingException;
 
 public class BuzzBicycle extends Bicycle {
 
