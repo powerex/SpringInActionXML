@@ -25,4 +25,9 @@
           class="ua.azbest.garage.ParkingTicket"
           scope="prototype" />
 
+    <bean id="box"
+          class="ua.azbest.garage.GarageBox"
+          init-method="turnOnLights"
+          destroy-method="turnOffLights"/>
+
 </beans>

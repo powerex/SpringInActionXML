@@ -22,5 +22,8 @@ public class GarageApplication {
         t2.info();
         ParkingTicket t3 = (ParkingTicket) context.getBean("ticket");
         t3.info();
+
+        GarageBox box = (GarageBox) context.getBean("box");
+
     }
 }
