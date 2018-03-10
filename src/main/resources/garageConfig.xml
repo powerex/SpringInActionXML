@@ -33,9 +33,16 @@
     <bean id="diesel" class="ua.azbest.garage.engine.DieselEngine" />
     <bean id="electro" class="ua.azbest.garage.engine.ElectricEngine" />
 
-    <bean id="car" class="ua.azbest.garage.vehicle.Car">
+    <!--<bean id="car" class="ua.azbest.garage.vehicle.Car">
         <property name="color" value="зелений"/>
         <property name="engine" ref="electro" />
+    </bean>-->
+
+    <bean id="car" class="ua.azbest.garage.vehicle.Car">
+        <property name="color" value="зелений"/>
+        <property name="engine">
+            <bean class="ua.azbest.garage.engine.ElectricEngine"/>
+        </property>
     </bean>
 
 </beans>
