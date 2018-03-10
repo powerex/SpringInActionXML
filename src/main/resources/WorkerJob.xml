@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="worker" class="ua.azbest.worker.GeneralWorker">
+        <constructor-arg ref="job" />
+        <!-- Впровадження компонента job -->
+    </bean>
+    <!-- Створення FixPipeJob -->
+    <bean id="job"
+          class="ua.azbest.worker.FixPipeJob" />
+
+    <!-- Оголошення компонента Dispatcher -->
+    <bean id="dispatcher"
+          class="ua.azbest.worker.Dispatcher" />
+    <aop:config>
+        <aop:aspect ref="dispatcher">
+            <!-- Огоошення точки впровадження -->
+            <aop:pointcut id="work"
+                          expression="execution(* *.doWork(..))" />
+            <aop:before pointcut-ref="work"
+                        method="entryBeforeWork"/> <!-- Операція, що виконується до -->
+            <aop:after pointcut-ref="work"
+                       method="entryAfterWork"/> <!-- Операція, що виконується після -->
+        </aop:aspect>
+    </aop:config>
+
+</beans>
