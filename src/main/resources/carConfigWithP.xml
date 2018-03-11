@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="electro" class="ua.azbest.garage.engine.ElectricEngine" />
+    <bean id="diesel" class="ua.azbest.garage.engine.DieselEngine" />
+    <bean id="gas" class="ua.azbest.garage.engine.GasolineEngine" />
+    <bean id="oil" class="ua.azbest.garage.engine.OilEngine" />
+
+    <bean id="car" class="ua.azbest.garage.vehicle.Car"
+          p:color="Жовтий"
+          p:engine-ref="electro"/>
+
+    <bean id="gybrid" class="ua.azbest.garage.vehicle.GybridCar" p:color="Білий">
+        <property name="engines">
+            <list>
+                <ref bean="electro" />
+                <ref bean="oil" />
+                <ref bean="gas" />
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
