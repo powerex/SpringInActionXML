@@ -3,23 +3,26 @@ package ua.azbest.garage.vehicle;
 import ua.azbest.garage.MovingException;
 import ua.azbest.garage.engine.Engine;
 
-import java.util.Collection;
+import java.util.Map;
 
 public class GybridCar implements Vehicle {
 
     private String color;
-    private Collection<Engine> engines;
+    private Map<String, Engine> engines;
 
     public GybridCar() {
     }
 
     public void move() throws MovingException {
         System.out.print("Колір авто - " + color + ": ");
-        for (Engine engine: engines)
+        for (String key: engines.keySet()) {
+            System.out.print(key + ": ");
+            Engine engine = engines.get(key);
             engine.work();
+        }
     }
 
-    public void setEngines(Collection<Engine> engines) {
+    public void setEngines(Map<String, Engine> engines) {
         this.engines = engines;
     }
 

@@ -15,11 +15,11 @@
 
     <bean id="gybrid" class="ua.azbest.garage.vehicle.GybridCar" p:color="Білий">
         <property name="engines">
-            <list>
-                <ref bean="electro" />
-                <ref bean="oil" />
-                <ref bean="gas" />
-            </list>
+            <map>
+                <entry key="Електродвигун" value-ref="electro" />
+                <entry key="Бензиновий двигун" value-ref="oil" />
+                <entry key="Газовий двигун" value-ref="gas" />
+            </map>
         </property>
     </bean>
 
